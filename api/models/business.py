@@ -8,7 +8,8 @@ class Business(models.Model):
     # choices for the category
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     name = models.CharField(max_length=100)
-
+    address = models.TextField(max_length=200, blank=True)
+    
     CATEGORY_CHOICES = [
     ("1", "Electronics"),
     ("2", "Auto"),

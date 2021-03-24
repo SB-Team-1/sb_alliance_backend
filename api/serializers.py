@@ -40,11 +40,11 @@ class ChangePasswordSerializer(serializers.Serializer):
     old = serializers.CharField(required=True)
     new = serializers.CharField(required=True)
 
-class Businness(serializers.ModelSerializer):
-    category_display=serializers.Charfield(source='get_category_display')
+class Business(serializers.ModelSerializer):
+    category_display = serializers.CharField(source='get_category_display', )
     class Meta:
-        model = Businness
-        fields = ('id', 'user', 'name', 'category', 'description', 'website', 'favorite', 'category_display')
+        model = Business
+        fields = ('id', 'user', 'name', 'category', 'description', 'website', 'favorite', 'category_display', 'created')
 class Alliance(serializers.ModelSerializer):
     class Meta:
         model = Alliance
