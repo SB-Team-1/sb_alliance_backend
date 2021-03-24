@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 import sys
 import dj_database_url
+import django_heroku
 
 # .env config:
 from dotenv import load_dotenv, find_dotenv
@@ -173,3 +174,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Use the custom user model as the auth user for the admin view
 AUTH_USER_MODEL = 'api.User'
+django_heroku.settings(locals())
+
