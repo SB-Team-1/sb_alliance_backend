@@ -42,3 +42,6 @@ admin.site.register(User, UserAdmin)
 admin.site.register(Business)
 admin.site.register(Alliance)
 admin.site.register(Perks)
+
+
+
