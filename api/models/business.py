@@ -23,7 +23,6 @@ class Business(models.Model):
     category = models.CharField(
         max_length=1,
         choices=CATEGORY_CHOICES,
-        # required=True
     )
 
     description = models.TextField(max_length=750)

@@ -2,7 +2,7 @@ from django.contrib.auth import get_user_model
 from rest_framework import serializers
 
 from .models.user import User
-
+from .models.business import Business, Alliance, Perks
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation
     # The login serializer also inherits from this serializer
@@ -39,3 +39,17 @@ class ChangePasswordSerializer(serializers.Serializer):
     model = get_user_model()
     old = serializers.CharField(required=True)
     new = serializers.CharField(required=True)
+
+class Businness(serializers.ModelSerializer):
+    category_display=serializers.Charfield(source='get_category_display')
+    class Meta:
+        model = Businness
+        fields = ('id', 'user', 'name', 'category', 'description', 'website', 'favorite', 'category_display')
+class Alliance(serializers.ModelSerializer):
+    class Meta:
+        model = Alliance
+        fields = ('id', 'user', 'name', 'location', 'description')
+class Perks(serializers.ModelSerializer):
+    class Meta:
+        model = Perks
+        fields = ('id', 'discounts', 'alliance')
