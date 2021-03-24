@@ -8,6 +8,8 @@ from django.contrib.auth import get_user, authenticate, login, logout
 
 from ..serializers import UserSerializer, UserRegisterSerializer,  ChangePasswordSerializer
 from ..models.user import User
+from ..models.business import Business, Alliance, Perks
+
 
 class SignUp(generics.CreateAPIView):
     # Override the authentication/permissions classes so this endpoint
@@ -46,7 +48,6 @@ class SignIn(generics.CreateAPIView):
 
     def post(self, request):
         creds = request.data['credentials']
-        print(creds)
         # We can pass our email and password along with the request to the
         # `authenticate` method. If we had used the default user, we would need
         # to send the `username` instead of `email`.
@@ -97,3 +98,53 @@ class ChangePassword(generics.UpdateAPIView):
             return Response(status=status.HTTP_204_NO_CONTENT)
 
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class BusinessCreate(generics.UpdateAPIView):
+    def post(self, request):
+        user = request.user
+        name = request.name
+class BusinessEdit(generics.UpdateAPIView):
+    def patch(self, request):
+        user = request.user
+        name = request.name
+class Business(generics.UpdateAPIView):
+    def get(self, request):
+        user = request.user
+        name = request.name
+class BusinessId(generics.UpdateAPIView):
+    def get(self, request):
+        user = request.user
+        name = request.name
+class AllianceCreate(generics.UpdateAPIView):
+    def post(self, request):
+        user = request.user
+        name = request.name
+class AllianceEdit(generics.UpdateAPIView):
+    def patch(self, request):
+        user = request.user
+        name = request.name
+class Alliance(generics.UpdateAPIView):
+    def get(self, request):
+        user = request.user
+        name = request.name
+class AllianceId(generics.UpdateAPIView):
+    def get(self, request):
+        user = request.user
+        name = request.name
+class PerksCreate(generics.UpdateAPIView):
+    def post(self, request):
+        user = request.user
+        name = request.name
+class PerksEdit(generics.UpdateAPIView):
+    def patch(self, request):
+        user = request.user
+        name = request.name
+class Perks(generics.UpdateAPIView):
+    def get(self, request):
+        user = request.user
+        name = request.name
+class PerksId(generics.UpdateAPIView):
+    def get(self, request):
+        user = request.user
+        name = request.name
+
