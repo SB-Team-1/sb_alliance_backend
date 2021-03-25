@@ -8,7 +8,6 @@ from django.contrib.auth import get_user, authenticate, login, logout
 
 from ..serializers import UserSerializer, UserRegisterSerializer,  ChangePasswordSerializer
 from ..models.user import User
-from ..models.business import Business, Alliance, Perks
 
 
 class SignUp(generics.CreateAPIView):
