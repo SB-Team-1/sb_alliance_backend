@@ -32,7 +32,7 @@ class Perks(generics.ListCreateAPIView):
             perk.save()
             return Response({ 'perk': perk.data }, status=status.HTTP_201_CREATED)
         return Response(perk.errors, status=status.HTTP_400_BAD_REQUEST)
-class PerkDetail(generics.RetrieveUpdateDestroyAPIView):
+class PerksDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes=(IsAuthenticated)
     def get(self, request, pk):
         """Show request"""
