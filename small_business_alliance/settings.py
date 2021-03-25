@@ -42,7 +42,7 @@ else:
     CORS_ALLOW_ALL_ORIGINS = True
     CORS_ORIGIN_WHITELIST = [
         os.getenv('CLIENT_ORIGIN'),
-        "http://localhost:3000"
+        "https://localhost:3000"
     ]
     # CORS_ORIGIN_WHITELIST = [
     #     os.getenv('CLIENT_ORIGIN')
